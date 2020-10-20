@@ -1,7 +1,6 @@
 
 //USEFUL VARIABLES FOR MENU DISPLAY
 const categoriesUrl = "http://localhost:3000/categories"
-//ask coach why below variable isn't accessible wiht fetchCategories function
 const categoriesMenuList = document.querySelector("ul#menu-categories-ul")
 
 
@@ -26,7 +25,7 @@ function fetchCategories(){
 }
 fetchCategories()
 
-const displayItemsForCategory = (category) => {
+// const displayItemsForCategory = (category) => {
   
-}
+// }
 
