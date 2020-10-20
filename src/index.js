@@ -33,9 +33,12 @@ const displayItemsForCategory = (category) => {
     let itemDescription = document.createElement("p")
     itemDescription.classList.add("w3-text-grey")
     itemName.innerText = item.name
-    itemDescription.innerText =  `${item.description} \n ${item.regular} ${item.large}`
+    itemDescription.innerText =  `${item.description} \n $${item.regular} $${item.large}`
 
     itemsInCategoryContainer.append(itemName, itemDescription)
+    itemsInCategoryContainer.addEventListener("click", () => {
+      
+    })
   })
 }
 
