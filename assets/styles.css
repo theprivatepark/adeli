@@ -1,4 +1,25 @@
 
+body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url('images/adeli-logo.png');
+  min-height: 400px;
+}
+
+.menu {
+  display: none;
+}
+
+
+
+
+
+/* 
 
 .category-menu-item {
   list-style-type: none;
@@ -6,3 +27,7 @@
   cursor: pointer;
   background-color: grey;
 }
+
+.menu-categories {
+border: orangered solid;
+} */
