@@ -31,3 +31,19 @@ body, html {
 .menu-categories {
 border: orangered solid;
 } */
+
+
+/* CONTACT US DIV */
+#contact-us-header {
+  background-image: url('./images/italy-flag.png');
+  background-size: 100%;
+  border-radius: 10px;
+}
+
+#shop-front-view {
+  border-radius: 10px;
+}
+#where {
+  text-align: center;
+}
+
