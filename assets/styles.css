@@ -22,22 +22,44 @@ h3,h4 {
 /* about us */
 #about {
   min-height: 65vh;
-  display: inline-block;
+  /* display: inline-grid;
+  grid-gap: 10px; */
+  display: table;
+
+}
+
+#about > h2 {
+  text-align: center;
+}
+
+#about > div {
+  /* display: inline-grid;
+  text-align: center; */
+  position: absolute;
 }
 
 #about-content {
-  max-width: 20%;
-  display: inline-block;
+  max-height: 100%;
+  max-width: 100%;
+  /* grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 1; */
+  left: 5%;
+  width: 45%;
 }
 
 #about-img-div {
-  display: inline-block;
-  padding: 0;
+  /* grid-column-start: 2;
+  grid-column-end: 3; */
+  right: 5%;
+  width: 45%;
 }
 
 #about-image {
-  max-width: 40%;
-  display: inline-block;
+  max-height: 235px;
+  max-width: 100%;
+ 
 }
 
 .w3-container {
