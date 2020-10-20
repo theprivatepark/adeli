@@ -49,10 +49,10 @@ h3 {
 }
 
 
-/*
-.menu-categories {
-border: orangered solid;
-} */
+#eat {
+  height: 500px;
+  overflow-y: auto;
+}
 
 
 /* CONTACT US DIV */
