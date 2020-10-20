@@ -1,0 +1,8 @@
+
+
+.category-menu-item {
+  list-style-type: none;
+  margin: 1rem;
+  cursor: pointer;
+  background-color: grey;
+}
