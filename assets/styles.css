@@ -19,15 +19,27 @@ body, html {
 
 
 
-/* 
+
+/* MENU DIV */
+#menu-categories-ul {
+  text-align: center;
+}
+
+#current-menu {
+  text-align: center;
+}
 
 .category-menu-item {
+  background-color: rgb(238, 232, 232);
+  border-radius: 5px;
+  display: inline-block;
   list-style-type: none;
   margin: 1rem;
   cursor: pointer;
-  background-color: grey;
 }
 
+
+/*
 .menu-categories {
 border: orangered solid;
 } */
