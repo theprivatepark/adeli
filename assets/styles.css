@@ -1,22 +1,18 @@
-
 body, html {
   height: 100%;
-  font-family: "Inconsolata", sans-serif;
+  font-family: fantasy;
 }
 
 .bgimg {
   background-position: center;
-  background-size: cover;
-  background-image: url('images/adeli-logo.png');
-  min-height: 400px;
+  background-size: contain ;
+  background-image: url('images/subcircle.png');
+  min-height: 75%;
 }
 
 .menu {
   display: none;
 }
-
-
-
 
 
 /* 
