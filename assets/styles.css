@@ -6,13 +6,15 @@ body, html {
 h3 {
   font-family: fantasy;
   font-weight: bold;
+  text-decoration: underline;
 }
 
 .bgimg {
   background-position: center;
   background-size: contain ;
   background-image: url('images/subcircle.png');
-  min-height: 75%;
+  min-height: 95%;
+  background-repeat: no-repeat;
 }
 
 .menu {
