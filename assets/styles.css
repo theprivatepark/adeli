@@ -3,6 +3,11 @@ body, html {
   font-family: fantasy;
 }
 
+h3 {
+  font-family: fantasy;
+  font-weight: bold;
+}
+
 .bgimg {
   background-position: center;
   background-size: contain ;
@@ -22,8 +27,6 @@ body, html {
   text-align: center;
   min-height: 100vh;
 }
-
-
 
 
 /* 
