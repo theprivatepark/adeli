@@ -3,12 +3,13 @@ body, html {
   font-family: fantasy;
 }
 
-h3 {
+h3,h4 {
   font-family: fantasy;
   font-weight: bold;
   text-decoration: underline;
 }
 
+/* background image */
 .bgimg {
   background-position: center;
   background-size: contain ;
@@ -17,8 +18,26 @@ h3 {
   background-repeat: no-repeat;
 }
 
-.menu {
-  display: none;
+
+/* about us */
+#about {
+  min-height: 65vh;
+  display: inline-block;
+}
+
+#about-content {
+  max-width: 20%;
+  display: inline-block;
+}
+
+#about-img-div {
+  display: inline-block;
+  padding: 0;
+}
+
+#about-image {
+  max-width: 40%;
+  display: inline-block;
 }
 
 .w3-container {
@@ -30,9 +49,11 @@ h3 {
   min-height: 100vh;
 }
 
-
-
 /* MENU DIV */
+.menu {
+  display: none;
+}
+
 #menu-categories-ul {
   text-align: center;
 }
@@ -50,23 +71,21 @@ h3 {
   cursor: pointer;
 }
 
-
 #eat {
   height: 500px;
   overflow-y: auto;
 }
-
 
 /* CONTACT US DIV */
 #contact-us-header {
   background-image: url('./images/italy-flag.png');
   background-size: 100%;
   border-radius: 10px;
+  font-family: fantasy;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
-#shop-front-view {
-  border-radius: 10px;
-}
 #where {
   text-align: center;
 }
