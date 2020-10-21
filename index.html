@@ -20,13 +20,13 @@
       <a href="#" class="w3-button w3-block w3-white">Home</a>
     </div>
     <div class="w3-col s3">
-      <a href="#about" class="w3-button w3-block w3-white">About Us</a>
-    </div>
-    <div class="w3-col s3">
       <a href="#menu" class="w3-button w3-block w3-white">Menu</a>
     </div>
     <div class="w3-col s3">
       <a href="#where" class="w3-button w3-block w3-white">Contact Us</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#about" class="w3-button w3-block w3-white">About Us</a>
     </div>
   </div>
 </div>
@@ -51,60 +51,26 @@
 <!-- Add a background color and large text to the whole page -->
 <div class="w3-sand w3-grayscale w3-large">
 
-<!-- About Container -->
 
-<div class="w3-container">
-  <h3>About a Deli</h3>
-
-  <div id="about">
-    <div class="" id="about-content">
-      <p>Small, family-owned deli, established in 1992. Our customers say we have the best subs in the area, come try one for yourself!!</p>
-      <p class="w3-panel w3-leftbar w3-light-grey"><em>"Amazing food, great service. <br> If want authentic Italian subs/food, this is your place."</em></p>
-    </div>
-
-    <div id="about-img-div">
-      <img src="assets/images/owners.png" id="about-image">
-    </div>
-  </div>
-</div>
-
-<!-- Menu Container -->
-<div class="w3-container" id="menu">
-  <div class="w3-content" style="max-width:700px">
+  <!-- Menu Container -->
+  <div class="w3-container" id="menu">
+    <div class="w3-content" style="max-width:700px">
  
-    <h3>Our Menu</h3>
-  
-    <ul id="menu-categories-ul">
-    </ul>
-
-    <div class="w3-row w3-center w3-card w3-padding">
-      <div class="w3-col s6 tablink" id="current-menu">Eat</div>
+      <h3>Our Menu</h3>
+      
+      <ul id="menu-categories-ul">
+      </ul>
+      
+      <div class="w3-row w3-center w3-card w3-padding">
+      <div id="current-menu"></div>
     </div>
 
-    <div id="eat" class="w3-padding-48 w3-card"></div>
+    <div id="eat" class="w3-padding-70 w3-card-2"></div>
     
-
-    <!-- <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
-      <h5>Coffee</h5>
-      <p class="w3-text-grey">Regular coffee 2.50</p><br>
-    
-      <h5>Chocolato</h5>
-      <p class="w3-text-grey">Chocolate espresso with milk 4.50</p><br>
-    
-      <h5>Corretto</h5>
-      <p class="w3-text-grey">Whiskey and coffee 5.00</p><br>
-    
-      <h5>Iced tea</h5>
-      <p class="w3-text-grey">Hot tea, except not hot 3.00</p><br>
-    
-      <h5>Soda</h5>
-      <p class="w3-text-grey">Coke, Sprite, Fanta, etc. 2.50</p>
-    </div>   -->
-   
   </div>
 </div>
 
-
+<hr class="solid">
 <!-- Contact us Container -->
 <div class="w3-container" id="where" style="padding-bottom:32px;">
   <div class="w3-content" style="max-width:700px">
@@ -115,10 +81,23 @@
     <p>Telephone: (703) 330-1959</p>
     <p>Address: 10384 Portsmouth Road Manassas, VA 20109</p>
     <p>We are located on route 234 in Toys R Us shopping center across from Manassas Mall</p>
-          <div class="contact-images">
-              <img src="./assets/images/mapstore.png" id="shop-front-view" class="w3-image">
-          </div>
+    <div class="contact-images">
+      <img src="./assets/images/mapstore.png" id="shop-front-view" class="w3-image">
+    </div>
   </div>
+</div>
+<hr class="solid">
+<!-- About Container -->
+<div class="w3-container" id="about">
+  <div class="w3-content">
+    <div id="about-img-div">
+      <h4>About Us</h4>
+      <img src="assets/images/owners.png" id="about-image">
+    </div>
+    <p>Small, family-owned deli, established in 1992. <br> Our customers say we have the best subs in the area, come try one for yourself!!</p>
+  </div>
+
+
 </div>
 
 <!-- End page content -->

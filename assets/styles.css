@@ -3,63 +3,62 @@ body, html {
   font-family: fantasy;
 }
 
-h3,h4 {
+h3,h4,h5 {
   font-family: fantasy;
   font-weight: bold;
   text-decoration: underline;
 }
 
+#home {
+  background-color: #fdf5e6!important;
+}
 /* background image */
 .bgimg {
   background-position: center;
   background-size: contain ;
   background-image: url('images/subcircle.png');
-  min-height: 95%;
+  min-height: 100%;
   background-repeat: no-repeat;
 }
 
 
 /* about us */
 #about {
-  min-height: 65vh;
+  min-height: 85vh;
   /* display: inline-grid;
   grid-gap: 10px; */
-  display: table;
+  /* display: table; */
 
 }
-
-#about > h2 {
+/* 
+#about-div {
+  width: 400px;
   text-align: center;
-}
+} */
 
-#about > div {
-  /* display: inline-grid;
-  text-align: center; */
-  position: absolute;
-}
+/* #about > h2 {
+  text-align: center;
+} */
+
 
 #about-content {
   max-height: 100%;
   max-width: 100%;
-  /* grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 1; */
   left: 5%;
-  width: 45%;
+  width: 500px;
+  top: 7%
 }
 
-#about-img-div {
-  /* grid-column-start: 2;
-  grid-column-end: 3; */
-  right: 5%;
-  width: 45%;
-}
 
 #about-image {
-  max-height: 235px;
+  max-height: 255px;
   max-width: 100%;
- 
+  position: relative;
+}
+
+#about-deli-header{
+  line-height: 8;
+  
 }
 
 .w3-container {
@@ -71,16 +70,21 @@ h3,h4 {
   min-height: 100vh;
 }
 
+.w3-container-about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 60vh;
+}
+
 /* MENU DIV */
 .menu {
   display: none;
 }
 
 #menu-categories-ul {
-  text-align: center;
-}
-
-#current-menu {
   text-align: center;
 }
 
@@ -110,5 +114,10 @@ h3,h4 {
 
 #where {
   text-align: center;
+}
+
+/* Solid border */
+hr.solid {
+  border-top: 3px solid #bbb;
 }
 
