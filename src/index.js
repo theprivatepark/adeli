@@ -30,14 +30,17 @@ const displayItemsForCategory = (category) => {
   clearChildNodes(itemsInCategoryContainer)
   category.items.forEach((item) => {
     let itemName = document.createElement("h5")
+    let itemNameContainer = document.createElement("span")
+    itemNameContainer.classList.add("item-name")
     let itemDescription = document.createElement("p")
     itemDescription.classList.add("w3-text-grey")
-    itemName.innerText = item.name
+    itemNameContainer.innerText = item.name
     itemDescription.innerText =  `${item.description} \n $${item.regular} $${item.large}`
 
+    itemName.append(itemNameContainer)
     itemsInCategoryContainer.append(itemName, itemDescription)
-    itemsInCategoryContainer.addEventListener("click", () => {
-      
+    itemNameContainer.addEventListener("click", () => {
+      openForm(item)
     })
   })
 }
@@ -46,4 +49,13 @@ const clearChildNodes = (targetNode) => {
   while (targetNode.firstChild) (
     targetNode.firstChild.remove()
   )
+}
+
+function openForm() {
+  document.getElementById("sizeChoice").style.display = "block";
+  console.log("hi")
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
 }
