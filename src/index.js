@@ -35,8 +35,7 @@ const displayItemsForCategory = (category) => {
     let itemDescription = document.createElement("p")
     itemDescription.classList.add("w3-text-grey")
     itemNameContainer.innerText = item.name
-    itemDescription.innerText =  `${item.description} \n $${item.regular} $${item.large}`
-
+    itemInfoFormat(item, itemDescription)
     itemName.append(itemNameContainer)
     itemsInCategoryContainer.append(itemName, itemDescription)
     itemNameContainer.addEventListener("click", () => {
@@ -44,6 +43,35 @@ const displayItemsForCategory = (category) => {
     })
   })
 }
+
+const itemInfoFormat = (item, itemDescription) => {
+
+  if (item.description && item.regular && item.large) {
+    itemDescription.innerHTML =  `${item.description} <br> ${formatter.format(item.regular)} &nbsp; ${formatter.format(item.large)}`
+  }
+  else if (item.description && item.regular) {
+    itemDescription.innerHTML = `${item.description} <br> ${formatter.format(item.regular)}`
+  }
+  else if (item.description && item.large) {
+    itemDescription.innerHTML = `${item.description} <br> ${formatter.format(item.large)}`
+  }
+  else if (item.regular && item.large) {
+    itemDescription.innerHTML =  `${formatter.format(item.regular)} ${formatter.format(item.large)}`
+  }
+  else if (item.regular) {
+    itemDescription.innerHTML =  `${formatter.format(item.regular)}`
+  }
+  else {
+    itemDescription.innerHTML =  `${formatter.format(item.large)}`
+  }
+}
+
+const formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  minimumFractionDigits: 2
+})
+
 
 const clearChildNodes = (targetNode) => {
   while (targetNode.firstChild) (
