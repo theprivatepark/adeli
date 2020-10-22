@@ -99,27 +99,33 @@ function closeForm() {
 }
 
 const submitOrderToCart = () => {
+  let whichSize = document.querySelector('input[name="size"]:checked').value;
   let selectionId = document.querySelector("button.cancel").id
-  localStorage.clear()
-  if (localStorage.getItem("aDeliCart")) {
-    //use the value stored at key 'aDeliCart' to get their order
-  // fetch()
-  console.log(localStorage.getItem("aDeliCart"))
+  // let setData = localStorage.setItem("aDeliCart", JSON.stringify([selectionId]))
+  let retrieveData = JSON.parse(localStorage.getItem("aDeliCart"))
+  // localStorage.clear() //remove this for proper functionality
+  debugger
+  if (retrieveData && retrieveData.includes(selectionId)) {
+    //update the quantity
+    console.log(localStorage.getItem("aDeliCart"), "I'll update the quatity by one son.")
+  } else if (retrieveData) {
+    retrieveData.push(selectionId)
+    localStorage.setItem("aDeliCart", JSON.stringify({
+      selectionId: {
+        regular: 1,
+        large: 1
+      }
+    }))
+    //set the local storage key to an array containing the item id and quatity
+    console.log("This item is not included. But I have pushed it onto the array", localStorage.getItem("aDeliCart"))
   } else {
-    //set the local storage key and create a new order with name: and price:
-    localStorage.setItem("aDeliCart", selectionId)
-    fetch(updateOrderUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        name: "hyrum",
-        price: 8.99
-      })
-    })
-    .then(resp => resp.json())
-    .then(data => console.log)
-
+    localStorage.setItem("aDeliCart", JSON.stringify({
+      selectionId: {
+        regular: 1,
+        large: 1
+      }
+    }))
   }
 }
+
+//also need a removeItemFromCart function
