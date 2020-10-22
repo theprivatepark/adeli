@@ -211,8 +211,9 @@ hr.solid {
 }
 
 #see-cart-btn {
-  background-color: teal;
   border-radius: 5px;
+  background-color: transparent;
+  border: none;
 }
 
 #see-cart-btn:hover {
@@ -222,6 +223,11 @@ hr.solid {
 
 #cart-img {
   padding: -5px;
-  height: 15px;
-  width: 15px;
+  height: 25px;
+  width: 25px;
+}
+
+.w3-col.s1 {
+  text-align: center;
+  margin-top: 5px;
 }
