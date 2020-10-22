@@ -1,4 +1,6 @@
 
+const updateOrderUrl = "http://localhost:3000/orders/"
+
 //USEFUL VARIABLES FOR MENU DISPLAY
 const categoriesUrl = "http://localhost:3000/categories"
 const categoriesMenuList = document.querySelector("#menu-categories-ul")
@@ -29,15 +31,22 @@ fetchCategories()
 const displayItemsForCategory = (category) => {
   clearChildNodes(itemsInCategoryContainer)
   category.items.forEach((item) => {
+    //set-up for item name
     let itemName = document.createElement("h5")
     let itemNameContainer = document.createElement("span")
     itemNameContainer.classList.add("item-name")
+    itemNameContainer.id = item.id
+
+    //set-up for item description info
     let itemDescription = document.createElement("p")
     itemDescription.classList.add("w3-text-grey")
+    
+    //add data to nodes
     itemNameContainer.innerText = item.name
     itemInfoFormat(item, itemDescription)
     itemName.append(itemNameContainer)
     itemsInCategoryContainer.append(itemName, itemDescription)
+
     itemNameContainer.addEventListener("click", () => {
       openForm(item)
     })
@@ -79,11 +88,38 @@ const clearChildNodes = (targetNode) => {
   )
 }
 
-function openForm() {
+function openForm(selection) {
   document.getElementById("sizeChoice").style.display = "block";
-  console.log("hi")
+  let itemSelection = document.querySelector("button.cancel")
+  itemSelection.id = selection.id
 }
 
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
+}
+
+const submitOrderToCart = () => {
+  let selectionId = document.querySelector("button.cancel").id
+  localStorage.clear()
+  if (localStorage.getItem("aDeliCart")) {
+    //use the value stored at key 'aDeliCart' to get their order
+  // fetch()
+  console.log(localStorage.getItem("aDeliCart"))
+  } else {
+    //set the local storage key and create a new order with name: and price:
+    localStorage.setItem("aDeliCart", selectionId)
+    fetch(updateOrderUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: "hyrum",
+        price: 8.99
+      })
+    })
+    .then(resp => resp.json())
+    .then(data => console.log)
+
+  }
 }
