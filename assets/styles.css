@@ -21,37 +21,10 @@ h3,h4,h5 {
   background-repeat: no-repeat;
 }
 
-
 /* about us */
 #about {
   min-height: 85vh;
-  /* display: inline-grid;
-  grid-gap: 10px; */
-  /* display: table; */
-  /* display: flex; */
 
-}
-/* 
-#about-div {
-  width: 400px;
-  text-align: center;
-} */
-
-/* #about > h2 {
-  text-align: center;
-} */
-
-
-#about-content {
-  max-height: 100%;
-  max-width: 100%;
-  left: 5%;
-  width: 500px;
-  top: 7%;
-  /* float: left; */
-  position: relative;
-  display: inline-block;
-  z-index: 1;
 }
 
 #about-img-div {
@@ -65,11 +38,22 @@ h3,h4,h5 {
   display: inline-block;
 }
 
+.about-container {
+  border: 2px solid black;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+
+
 #about-image {
-  max-height: 255px;
+  max-height: 320px;
   max-width: 100%;
-  position: absolute;
-  float: right;
+  float: left;
+
+  margin-left: 40px;
 }
 
 #about-deli-header{
@@ -85,17 +69,11 @@ h3,h4,h5 {
   min-height: 100vh;
 }
 
-
-
 .w3-container-about {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: left;
-  min-height: 60vh;
 }
-
 
 
 /* MENU DIV */
