@@ -69,14 +69,14 @@
 
       <div id="large-btn-div">
         <label for="large"><b>Large</b></label>
-        <input type="radio" id="large" name="size" value="large">
+        <input type="radio" id="large" name="size" value="large" required>
       </div>
-  </div>
+    </div>
 
 
     <div id="submit-cancel-btn">
       <button type="submit" class="add-to-cart-btn" onclick="submitOrderToCart()">Add to Cart</button>
-      <button type="submit" class="add-to-cart-btn cancel" onclick="closeForm()">Cancel</button>
+      <button type="button" class="add-to-cart-btn cancel" onclick="closeForm()">Cancel</button>
     </div>
   </form>
 </div>
@@ -86,8 +86,7 @@
   <div class="w3-content" style="max-width:700px">
       <h3>Our Menu</h3>
       
-      <ul id="menu-categories-ul">
-      </ul>
+      <ul id="menu-categories-ul"></ul>
       
       <div class="w3-row w3-center w3-card w3-padding">
       <div id="current-menu"></div>

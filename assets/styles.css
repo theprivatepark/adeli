@@ -102,7 +102,17 @@ h1, h3,h4,h5 {
   cursor: pointer;
 }
 
-.item-name {
+/* .item-name {
+  cursor: pointer;
+} */
+
+.item-description {
+  margin-bottom: 0;
+}
+
+.add-menu-item {
+  margin-bottom: 50px;
+  font-size: .7rem;
   cursor: pointer;
 }
 
@@ -145,9 +155,6 @@ hr.solid {
   text-align: center;
 }
 
-/* {box-sizing: border-box;} */
-
-/* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
   background-color: #555;
   color: white;
@@ -161,19 +168,17 @@ hr.solid {
   width: 280px;
 }
 
-/* The popup form - hidden by default */
-
 #submit-cancel-btn {
   padding-top: 20px;
 }
 .add-to-cart-div {
-  display: none;
+  visibility: hidden;
+  transition: visibility 0s, opacity 2.5s linear;
   position: absolute;
   left: 48.5%;
   top: 6%;
   transform: translate(-45%, 70%);
   border: 6px solid #999999;
-  z-index: 9;
   padding: 50px;
   background-color: white;
 }
@@ -188,15 +193,6 @@ hr.solid {
   max-width: 300px;
   padding: 10px;
   background-color: white;
-}
-
-/* Full-width input fields */
-.add-to-cart-form input[type=text], .add-to-cart-form input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
 }
 
 /* When the inputs get focus, do something */
@@ -225,14 +221,6 @@ hr.solid {
 /* Add some hover effects to buttons */
 .add-to-cart-form .add-to-cart-btn:hover, .open-button:hover {
   opacity: 1;
-}
-
-#see-cart-div {
-  /* background-color: teal; */
-  height: 5px;
-  width: 5px;
-  margin-top: 60px;
-  margin-left: 95%;
 }
 
 #see-cart-btn {

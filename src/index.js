@@ -39,15 +39,20 @@ const displayItemsForCategory = (category) => {
 
     //set-up for item description info
     let itemDescription = document.createElement("p")
-    itemDescription.classList.add("w3-text-grey")
+    itemDescription.classList.add("w3-text-grey", "item-description")
+
+    //create 'add to cart' button
+    let addMenuItem = document.createElement("button")
+    addMenuItem.classList.add("add-menu-item")
+    addMenuItem.innerText = "Add To Cart"
     
     //add data to nodes
     itemNameContainer.innerText = item.name
     itemInfoFormat(item, itemDescription)
     itemName.append(itemNameContainer)
-    itemsInCategoryContainer.append(itemName, itemDescription)
+    itemsInCategoryContainer.append(itemName, itemDescription, addMenuItem)
 
-    itemNameContainer.addEventListener("click", () => {
+    addMenuItem.addEventListener("click", () => {
       openForm(item)
     })
   })
@@ -89,13 +94,13 @@ const clearChildNodes = (targetNode) => {
 }
 
 function openForm(selection) {
-  document.getElementById("sizeChoice").style.display = "block";
+  document.getElementById("sizeChoice").style.visibility = "visible"
   let itemSelection = document.querySelector("button.cancel")
   itemSelection.id = selection.id
 }
 
 function closeForm() {
-  document.getElementById("myForm").style.display = "none";
+  document.getElementById("sizeChoice").style.visibility = "hidden"
 }
 
 const submitOrderToCart = () => {
