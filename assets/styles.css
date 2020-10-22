@@ -130,7 +130,7 @@ hr.solid {
   border-top: 3px solid #bbb;
 }
 
-/* EXPERIMENT */
+/* ORDER FORM */
 
 /* {box-sizing: border-box;} */
 
@@ -151,11 +151,17 @@ hr.solid {
 /* The popup form - hidden by default */
 .add-to-cart-div {
   display: none;
-  position: fixed;
-  bottom: 0;
+  /* position: fixed;
+  bottom: 0; */
   right: 15px;
   border: 3px solid #f1f1f1;
   z-index: 2;
+  animation: slideinfromright 3s 1;
+}
+
+@keyframes slideinfromright {
+  0% {right: -100px;}
+  100% {right: 100px;}
 }
 
 /* Add styles to the form container */
