@@ -31,6 +31,10 @@
   </div>
 </div>
 
+<div class="w3-top" id="see-cart-div">
+  <button id="see-cart-btn"><img src="./assets/images/shopping-cart.png" id="cart-img"></button>
+</div>
+
 <!-- Header with image -->
 <header class="bgimg w3-display-container w3-grayscale-min" id="home">
   <div class="w3-display-middle w3-center">
@@ -51,21 +55,22 @@
 <!-- Add a background color and large text to the whole page -->
 <div class="w3-sand w3-grayscale w3-large">
 
-<!-- Menu Container -->
-<div class="form-popup" id="sizeChoice">
-  <form action="/action_page.php" class="form-container">
+ <!-- Size selection form -->
+<div class="add-to-cart-div" id="sizeChoice">
+  <form action="/action_page.php" class="add-to-cart-form">
     <h1>Select Size</h1>
     <label for="regular"><b>Regular</b></label>
-    <input type="radio" id="regular" name="regular" value="Regular">
+    <input type="radio" id="regular" name="size" value="Regular">
 
     <label for="large"><b>Large</b></label>
-    <input type="radio" id="large" name="large" value="large">
+    <input type="radio" id="large" name="size" value="large">
 
-    <button type="submit" class="btn">Add to Cart</button>
-    <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
+    <button type="submit" class="add-to-cart-btn" onclick="submitOrderToCart()">Add to Cart</button>
+    <button type="submit" class="add-to-cart-btn cancel" onclick="closeForm()">Cancel</button>
   </form>
 </div>
 
+<!-- Menu Container -->
 <div class="w3-container-menu" id="menu">
   <div class="w3-content" style="max-width:700px">
       <h3>Our Menu</h3>
