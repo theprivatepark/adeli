@@ -156,6 +156,12 @@ seeCartBtn.addEventListener("click", () => {
 const displayCart = () => {
   let shoppingCart = document.querySelector("div#shopping-cart")
   clearChildNodes(shoppingCart)
+  let headerDiv = document.createElement("div")
+  let headerPTag = document.createElement("p")
+  headerPTag.classList.add("header-tag-p")
+  headerPTag.innerText = "Cart"
+  shoppingCart.append(headerPTag)
+
   //making a close button
   let closeCartBtn = document.createElement("button")
   closeCartBtn.type = "button"
@@ -175,7 +181,7 @@ const displayCart = () => {
     let itemName
 
     for (choice of retrieveLocalData) {
-      debugger
+      // debugger
       choiceId = parseInt(Object.keys(choice)[0])
       
       for (item of items) {
@@ -224,20 +230,20 @@ const displayCart = () => {
           })
           itemDiv.append(nameContainer, quantityContainer, totalContainer, removeItemBtn)
           shoppingCart.append(itemDiv)
+          
         }
         
 
       }
 
     }
-    let headerDiv = document.createElement("div")
-    headerDiv.classList.add('header-div-class')
-    headerDiv.innerHTML = "Cart"
-  
+ 
+   
     // debugger
     totalContainer.innerText = (`Total ${formatter.format(cartTotalBeforeTax)}`)
-    shoppingCart.append(totalContainer, closeCartBtn, headerDiv)
+    shoppingCart.append(totalContainer, closeCartBtn)
     shoppingCart.style.visibility = "visible"
+
   })
 }
 
