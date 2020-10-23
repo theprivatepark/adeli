@@ -105,7 +105,7 @@ function closeForm() {
 const submitOrderToCart = () => {
   document.getElementById("sizeChoice").style.visibility = "hidden"
   let selectionQuantity = document.querySelector('input[name="quantity"]').value
-  debugger
+  // debugger
   let whichSize = document.querySelector('input[name="size"]:checked').value
   let selectionId = document.querySelector("button.cancel").id
   let retrieveData = JSON.parse(localStorage.getItem("aDeliCart"))
@@ -180,10 +180,9 @@ const displayCart = () => {
       for (item of items) {
         if (item.id === choiceId) {
           let itemDiv = document.createElement("div")
-         
+          itemDiv.classList.add('single-item-div')
           let nameContainer = document.createElement("p")
           let quantityContainer = document.createElement("p")
-
           itemName = item.name
 
           let largeQuantity
@@ -212,7 +211,7 @@ const displayCart = () => {
           }
           
 
-          debugger
+          // debugger
           let removeItemBtn = document.createElement("button")
           removeItemBtn.type = "button"
           removeItemBtn.classList.add("remove-item")
@@ -229,9 +228,13 @@ const displayCart = () => {
       }
 
     }
-    debugger
-    totalContainer.append(cartTotalBeforeTax.toFixed(2))
-    shoppingCart.append(totalContainer, closeCartBtn)
+    let headerDiv = document.createElement("div")
+    headerDiv.classList.add('header-div-class')
+    headerDiv.innerHTML = "Cart"
+  
+    // debugger
+    totalContainer.innerText = (`Total ${formatter.format(cartTotalBeforeTax)}`)
+    shoppingCart.append(totalContainer, closeCartBtn, headerDiv)
     shoppingCart.style.visibility = "visible"
   })
 }
