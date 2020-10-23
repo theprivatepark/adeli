@@ -278,6 +278,10 @@ hr.solid {
   border: 6px solid #999999;
   padding: 50px;
   background-color: white;
+  height: 500px;
+  overflow-y: auto;
+  text-align: center;
+
 }
 
 #cart-img {
@@ -296,7 +300,13 @@ h6 {
   background-color: red;
   color: white;
   outline: none;
+
 }
+
+.single-item-div {
+  text-align: center;
+}
+
 
 
 

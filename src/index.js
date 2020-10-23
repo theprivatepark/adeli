@@ -181,10 +181,9 @@ const displayCart = () => {
       for (item of items) {
         if (item.id === choiceId) {
           let itemDiv = document.createElement("div")
-         
+          itemDiv.classList.add('single-item-div')
           let nameContainer = document.createElement("p")
           let quantityContainer = document.createElement("p")
-
           itemName = item.name
 
           let largeQuantity
@@ -212,6 +211,8 @@ const displayCart = () => {
             quantityContainer.innerText = `Regular: ${regularQuantity} \n Large: ${largeQuantity}`
           }
           
+
+          // debugger
           let removeItemBtn = document.createElement("button")
           removeItemBtn.type = "button"
           removeItemBtn.classList.add("remove-item")
@@ -229,8 +230,13 @@ const displayCart = () => {
       }
 
     }
-    totalContainer.append(cartTotalBeforeTax.toFixed(2))
-    shoppingCart.append(totalContainer, closeCartBtn)
+    let headerDiv = document.createElement("div")
+    headerDiv.classList.add('header-div-class')
+    headerDiv.innerHTML = "Cart"
+  
+    // debugger
+    totalContainer.innerText = (`Total ${formatter.format(cartTotalBeforeTax)}`)
+    shoppingCart.append(totalContainer, closeCartBtn, headerDiv)
     shoppingCart.style.visibility = "visible"
   })
 }
