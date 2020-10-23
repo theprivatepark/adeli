@@ -92,7 +92,9 @@ const clearChildNodes = (targetNode) => {
   )
 }
 
+//ADD ITEM FORM
 function openForm(selection) {
+  let selectionId = document.querySelector("button.cancel").id
   document.getElementById("sizeChoice").style.visibility = "visible"
   let itemSelection = document.querySelector("button.cancel")
   itemSelection.id = selection.id
@@ -105,7 +107,6 @@ function closeForm() {
 const submitOrderToCart = () => {
   document.getElementById("sizeChoice").style.visibility = "hidden"
   let selectionQuantity = document.querySelector('input[name="quantity"]').value
-  debugger
   let whichSize = document.querySelector('input[name="size"]:checked').value
   let selectionId = document.querySelector("button.cancel").id
   let retrieveData = JSON.parse(localStorage.getItem("aDeliCart"))
@@ -171,10 +172,10 @@ const displayCart = () => {
     let retrieveLocalData = JSON.parse(localStorage.getItem("aDeliCart"))
     let totalContainer = document.createElement("p")
     let cartTotalBeforeTax = 0
-    let itemQuantity
     let itemName
 
     for (choice of retrieveLocalData) {
+      debugger
       choiceId = parseInt(Object.keys(choice)[0])
       
       for (item of items) {
@@ -211,16 +212,15 @@ const displayCart = () => {
             quantityContainer.innerText = `Regular: ${regularQuantity} \n Large: ${largeQuantity}`
           }
           
-
-          debugger
           let removeItemBtn = document.createElement("button")
           removeItemBtn.type = "button"
           removeItemBtn.classList.add("remove-item")
           removeItemBtn.innerText = "Remove"
-          removeItemBtn.addEventListener("click", () => {
-            removeItemFromCart()
-          })
 
+          let currentItem = item
+          removeItemBtn.addEventListener("click", () => {
+            removeItemFromCart(currentItem)
+          })
           itemDiv.append(nameContainer, quantityContainer, totalContainer, removeItemBtn)
           shoppingCart.append(itemDiv)
         }
@@ -229,7 +229,6 @@ const displayCart = () => {
       }
 
     }
-    debugger
     totalContainer.append(cartTotalBeforeTax.toFixed(2))
     shoppingCart.append(totalContainer, closeCartBtn)
     shoppingCart.style.visibility = "visible"
@@ -240,6 +239,16 @@ function closeShoppingCart() {
   document.getElementById("shopping-cart").style.visibility = "hidden"
 }
 
-const removeItemFromCart = () => {
+const removeItemFromCart = (selection) => {
+  let count = 0
+  let retrievedLocalStorage = JSON.parse(localStorage.getItem("aDeliCart"))
+  for (choice of JSON.parse(localStorage.getItem("aDeliCart"))) {
+    if (parseInt(Object.keys(choice)[0]) === selection.id) {
+      delete retrievedLocalStorage[count]
+      localStorage.setItem("aDeliCart", JSON.stringify(retrievedLocalStorage))
+    }
+    count += 1
+  }
+  displayCart()
 
 }
