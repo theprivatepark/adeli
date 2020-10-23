@@ -177,7 +177,8 @@ const displayCart = () => {
       
       for (item of items) {
         if (item.id === choiceId) {
-          let itemDiv = document.createElement("h6")
+          let itemDiv = document.createElement("div")
+         
           let nameContainer = document.createElement("p")
           let quantityContainer = document.createElement("p")
 

@@ -3,11 +3,13 @@ body, html {
   font-family: 'Cinzel', serif;
 }
 
-h1, h3,h4,h5 {
+h1,h3,h4,h5 {
   font-family: 'Cinzel', serif;
   font-weight: bold;
   text-decoration: underline;
 }
+
+
 
 #home {
   background-color: #fdf5e6!important;
@@ -235,7 +237,6 @@ hr.solid {
 /* Add a red background color to the cancel button */
 .add-to-cart-form .cancel {
   background-color: red;
- 
 }
 
 /* Add some hover effects to buttons */
@@ -250,14 +251,8 @@ hr.solid {
 }
 
 #see-cart-btn:hover {
-  background-color: rgb(30, 201, 201);
+  background-color: whitesmoke;
   cursor: pointer;
-}
-
-#cart-img {
-  padding: -5px;
-  height: 25px;
-  width: 25px;
 }
 
 .w3-col.s1 {
@@ -271,8 +266,37 @@ hr.solid {
   margin-bottom: 15px;
 }
 
+/* cart */
+
+#shopping-cart{
+  border-radius: 3px;
+  visibility: hidden;
+  transition: visibility 0s, opacity 2.5s linear;
+  position: fixed;
+  left: 82.5%;
+  top: 21%;
+  border: 6px solid #999999;
+  padding: 50px;
+  background-color: white;
+}
+
+#cart-img {
+  padding: -5px;
+  height: 25px;
+  width: 25px;
+}
+
+h6 {
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+}
 
 
+.close-cart {
+  background-color: red;
+  color: white;
+  outline: none;
+}
 
 
 
