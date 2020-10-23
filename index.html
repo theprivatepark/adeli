@@ -38,6 +38,8 @@
 </div>
 
 
+
+
 <!-- Header with image -->
 <header class="bgimg w3-display-container w3-grayscale-min" id="home">
 
@@ -55,6 +57,10 @@
   </div> -->
 </header>
 
+<div id="shopping-cart">
+  
+</div>
+
 <!-- Add a background color and large text to the whole page -->
 <div class="w3-sand w3-grayscale-min w3-large">
 
@@ -65,7 +71,7 @@
     <div class="btn-div">
       <div id="regular-btn-div">
         <label for="regular"><b>Regular</b></label>
-        <input type="radio" id="regular" name="size" value="Regular">
+        <input type="radio" id="regular" name="size" value="regular">
       </div>
 
       <div id="large-btn-div">
@@ -76,7 +82,7 @@
 
 
     <div id="submit-cancel-btn">
-      <button type="submit" class="add-to-cart-btn" onclick="submitOrderToCart()">Add to Cart</button>
+      <button type="button" class="add-to-cart-btn" onclick="submitOrderToCart()">Add to Cart</button>
       <button type="button" class="add-to-cart-btn cancel" onclick="closeForm()">Cancel</button>
     </div>
   </form>

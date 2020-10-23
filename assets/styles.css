@@ -21,6 +21,19 @@ h1, h3,h4,h5 {
   background-repeat: no-repeat;
 }
 
+/* shopping cart */
+#shopping-cart {
+  visibility: hidden;
+  z-index: 4;
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+.close-cart {
+  cursor: pointer;
+}
+
 /* about us */
 #about {
   min-height: 85vh;
@@ -112,10 +125,6 @@ h1, h3,h4,h5 {
   margin: 1rem;
   cursor: pointer;
 }
-
-/* .item-name {
-  cursor: pointer;
-} */
 
 .item-description {
   margin-bottom: 0;

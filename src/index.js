@@ -1,7 +1,6 @@
 
-const updateOrderUrl = "http://localhost:3000/orders/"
-
 //USEFUL VARIABLES FOR MENU DISPLAY
+const itemsUrl = "http://localhost:3000/items"
 const categoriesUrl = "http://localhost:3000/categories"
 const categoriesMenuList = document.querySelector("#menu-categories-ul")
 const itemsInCategoryContainer = document.querySelector("#eat")
@@ -104,6 +103,7 @@ function closeForm() {
 }
 
 const submitOrderToCart = () => {
+  document.getElementById("sizeChoice").style.visibility = "hidden"
   let whichSize = document.querySelector('input[name="size"]:checked').value;
   let selectionId = document.querySelector("button.cancel").id
   let retrieveData = JSON.parse(localStorage.getItem("aDeliCart"))
@@ -116,6 +116,7 @@ const submitOrderToCart = () => {
   let handled = "not yet"
   
   if (retrieveData) {
+    //consider refactoring to us 'of' instead of 'in'
     for (let k in retrieveData) {
       if (Object.keys(retrieveData[k]).includes(Object.keys(id)[0])) {
         if (retrieveData[k][Object.keys(id)[0]][whichSize] === undefined) {
@@ -139,6 +140,69 @@ const submitOrderToCart = () => {
   } else {
     localStorage.setItem("aDeliCart", JSON.stringify([id]))
   }
+  document.querySelector("form.add-to-cart-form").reset()
+}
+
+//DISPLAY CART
+let seeCartBtn = document.querySelector("button#see-cart-btn")
+seeCartBtn.addEventListener("click", () => {
+  displayCart()
+})
+
+
+const displayCart = () => {
+  let shoppingCart = document.querySelector("div#shopping-cart")
+  clearChildNodes(shoppingCart)
+  //making a close button
+  let closeCartBtn = document.createElement("button")
+  closeCartBtn.type = "button"
+  closeCartBtn.classList.add("close-cart")
+  closeCartBtn.innerText = "Close"
+  closeCartBtn.addEventListener("click", () => {
+    closeShoppingCart()
+  })
+
+  //fetch and parse data
+  fetch(itemsUrl, {})
+  .then(resp => resp.json())
+  .then(items => {
+    let retrieveLocalData = JSON.parse(localStorage.getItem("aDeliCart"))
+    let totalContainer = document.createElement("p")
+    let cartTotalBeforeTax = 0
+    let itemQuantity
+    let itemName
+
+    for (choice of retrieveLocalData) {
+      choiceId = parseInt(Object.keys(choice)[0])
+      
+      for (item of items) {
+        if (item.id === choiceId) {
+          let itemDiv = document.createElement("h6")
+          let nameContainer = document.createElement("p")
+          let quantityContainer = document.createElement("p")
+
+          itemName = item.name
+          let regularQuantity = choice[choiceId]["regular"]
+          let largeQuantity = choice[choiceId]["large"]
+          cartTotalBeforeTax += (item.regular * regularQuantity) + (item.large * largeQuantity)
+
+          nameContainer.innerText = itemName
+          quantityContainer.innerText = `Regular: ${regularQuantity} \n Large: ${largeQuantity}`
+          itemDiv.append(nameContainer, quantityContainer, totalContainer)
+          shoppingCart.append(itemDiv)
+        }
+
+      }
+
+    }
+    totalContainer.append(cartTotalBeforeTax)
+    shoppingCart.append(totalContainer, closeCartBtn)
+    shoppingCart.style.visibility = "visible"
+  })
+}
+
+function closeShoppingCart() {
+  document.getElementById("shopping-cart").style.visibility = "hidden"
 }
 
 //also need a removeItemFromCart function
