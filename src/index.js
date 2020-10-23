@@ -104,13 +104,15 @@ function closeForm() {
 
 const submitOrderToCart = () => {
   document.getElementById("sizeChoice").style.visibility = "hidden"
-  let whichSize = document.querySelector('input[name="size"]:checked').value;
+  let selectionQuantity = document.querySelector('input[name="quantity"]').value
+  debugger
+  let whichSize = document.querySelector('input[name="size"]:checked').value
   let selectionId = document.querySelector("button.cancel").id
   let retrieveData = JSON.parse(localStorage.getItem("aDeliCart"))
 
   // build an object to put into an array
   let sizeChoice = {}
-  sizeChoice[whichSize] = 1
+  sizeChoice[whichSize] = parseInt(selectionQuantity)
   let id = {}
   id[selectionId] = sizeChoice
   let handled = "not yet"
@@ -120,13 +122,13 @@ const submitOrderToCart = () => {
     for (let k in retrieveData) {
       if (Object.keys(retrieveData[k]).includes(Object.keys(id)[0])) {
         if (retrieveData[k][Object.keys(id)[0]][whichSize] === undefined) {
-          retrieveData[k][Object.keys(id)[0]][whichSize] = 1
+          retrieveData[k][Object.keys(id)[0]][whichSize] = parseInt(selectionQuantity)
           localStorage.setItem("aDeliCart", JSON.stringify(retrieveData))
           handled = "yes"
           break
         } else {
           handled = "yes"
-          retrieveData[k][Object.keys(id)[0]][whichSize] += 1
+          retrieveData[k][Object.keys(id)[0]][whichSize] += parseInt(selectionQuantity)
           localStorage.setItem("aDeliCart", JSON.stringify(retrieveData))
           break
         }
@@ -183,20 +185,52 @@ const displayCart = () => {
           let quantityContainer = document.createElement("p")
 
           itemName = item.name
-          let regularQuantity = choice[choiceId]["regular"]
-          let largeQuantity = choice[choiceId]["large"]
+
+          let largeQuantity
+          let regularQuantity
+          if (choice[choiceId]["regular"] === undefined) {
+            regularQuantity = 0
+          } else {
+            regularQuantity = choice[choiceId]["regular"]
+          }
+
+          if (choice[choiceId]["large"] === undefined) {
+            largeQuantity = 0
+          } else {
+            largeQuantity = choice[choiceId]["large"]
+          }
+
           cartTotalBeforeTax += (item.regular * regularQuantity) + (item.large * largeQuantity)
 
           nameContainer.innerText = itemName
-          quantityContainer.innerText = `Regular: ${regularQuantity} \n Large: ${largeQuantity}`
-          itemDiv.append(nameContainer, quantityContainer, totalContainer)
+          if (regularQuantity === 0 ) {
+            quantityContainer.innerText = `Large: ${largeQuantity}`
+          } else if (largeQuantity === 0) {
+            quantityContainer.innerText = `Regular: ${regularQuantity}`
+          } else {
+            quantityContainer.innerText = `Regular: ${regularQuantity} \n Large: ${largeQuantity}`
+          }
+          
+
+          debugger
+          let removeItemBtn = document.createElement("button")
+          removeItemBtn.type = "button"
+          removeItemBtn.classList.add("remove-item")
+          removeItemBtn.innerText = "Remove"
+          removeItemBtn.addEventListener("click", () => {
+            removeItemFromCart()
+          })
+
+          itemDiv.append(nameContainer, quantityContainer, totalContainer, removeItemBtn)
           shoppingCart.append(itemDiv)
         }
+        
 
       }
 
     }
-    totalContainer.append(cartTotalBeforeTax)
+    debugger
+    totalContainer.append(cartTotalBeforeTax.toFixed(2))
     shoppingCart.append(totalContainer, closeCartBtn)
     shoppingCart.style.visibility = "visible"
   })
@@ -206,4 +240,6 @@ function closeShoppingCart() {
   document.getElementById("shopping-cart").style.visibility = "hidden"
 }
 
-//also need a removeItemFromCart function
+const removeItemFromCart = () => {
+
+}
