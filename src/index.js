@@ -1,6 +1,7 @@
 
 //USEFUL VARIABLES FOR MENU DISPLAY
 const itemsUrl = "http://localhost:3000/items"
+const singleItemUrl = "http://localhost:3000/items/"
 const categoriesUrl = "http://localhost:3000/categories"
 const categoriesMenuList = document.querySelector("#menu-categories-ul")
 const itemsInCategoryContainer = document.querySelector("#eat")
@@ -94,10 +95,26 @@ const clearChildNodes = (targetNode) => {
 
 //ADD ITEM FORM
 function openForm(selection) {
-  let selectionId = document.querySelector("button.cancel").id
-  document.getElementById("sizeChoice").style.visibility = "visible"
-  let itemSelection = document.querySelector("button.cancel")
-  itemSelection.id = selection.id
+  fetch(singleItemUrl + `${selection.id}`)
+  .then(resp => resp.json())
+  .then(item => {
+    
+    let selectionId = document.querySelector("button.cancel").id
+    if (item.regular === null) {
+      document.querySelector("div#regular-btn-div").style.visibility = "hidden"
+      document.querySelector("div#large-btn-div").checked = "checked"
+    }
+    if (item.large === null) {
+      document.querySelector("div#large-btn-div").style.visibility = "hidden"
+      document.querySelector("div#regular-btn-div").checked = "checked"
+    }
+
+    document.getElementById("sizeChoice").style.visibility = "visible"
+
+    let itemSelection = document.querySelector("button.cancel")
+    itemSelection.id = selection.id
+
+  })
 }
 
 function closeForm() {
@@ -144,6 +161,7 @@ const submitOrderToCart = () => {
     localStorage.setItem("aDeliCart", JSON.stringify([id]))
   }
   document.querySelector("form.add-to-cart-form").reset()
+  displayCart()
 }
 
 //DISPLAY CART
@@ -181,7 +199,6 @@ const displayCart = () => {
     let itemName
 
     for (choice of retrieveLocalData) {
-      // debugger
       choiceId = parseInt(Object.keys(choice)[0])
       
       for (item of items) {
@@ -253,14 +270,22 @@ function closeShoppingCart() {
 
 const removeItemFromCart = (selection) => {
   let count = 0
+  let indexToBeDeleted
   let retrievedLocalStorage = JSON.parse(localStorage.getItem("aDeliCart"))
   for (choice of JSON.parse(localStorage.getItem("aDeliCart"))) {
     if (parseInt(Object.keys(choice)[0]) === selection.id) {
-      delete retrievedLocalStorage[count]
-      localStorage.setItem("aDeliCart", JSON.stringify(retrievedLocalStorage))
+      // delete retrievedLocalStorage[count]
+      // localStorage.setItem("aDeliCart", JSON.stringify(retrievedLocalStorage))
+      indexToBeDeleted = count
     }
     count += 1
   }
+
+  delete retrievedLocalStorage[indexToBeDeleted]
+  retrievedLocalStorage = retrievedLocalStorage.filter(function (el) {
+    return el != null;
+  });
+  localStorage.setItem("aDeliCart", JSON.stringify(retrievedLocalStorage))
   displayCart()
 
 }

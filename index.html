@@ -3,7 +3,7 @@
 <head>
   <title>a Deli in Manassas</title>
   <link rel="icon" href="assets/images/italyicon.png">
-  <meta charset="UTF-8">
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Permanent+Marker&display=swap" rel="stylesheet">
@@ -76,19 +76,19 @@
     <div class="btn-div">
       <div id="regular-btn-div">
         <label for="regular"><b>Regular</b></label>
-        <input type="radio" id="regular" name="size" value="regular">
+        <input type="radio" id="regular" name="size" value="regular" required>
       </div>
 
       <div id="large-btn-div">
         <label for="large"><b>Large</b></label>
-        <input type="radio" id="large" name="size" value="large" required>
+        <input type="radio" id="large" name="size" value="large" reqiured>
       </div>
 
-      <div id="large-btn-div">
-        <label for="quantity"><b>Quantity</b></label>
-        <input type="number" id="quantity" name="quantity" value="1" min="0" max="1000" required>
-      </div>
     </div>
+        <div id="quantity-selector-div">
+          <label for="quantity"><b>Quantity</b></label>
+          <input type="number" id="quantity" name="quantity" value="1" min="0" max="1000">
+        </div>
 
 
     <div id="submit-cancel-btn">
