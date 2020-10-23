@@ -106,30 +106,38 @@ function closeForm() {
 const submitOrderToCart = () => {
   let whichSize = document.querySelector('input[name="size"]:checked').value;
   let selectionId = document.querySelector("button.cancel").id
-  // let setData = localStorage.setItem("aDeliCart", JSON.stringify([selectionId]))
   let retrieveData = JSON.parse(localStorage.getItem("aDeliCart"))
-  // localStorage.clear() //remove this for proper functionality
-  debugger
-  if (retrieveData && retrieveData.includes(selectionId)) {
-    //update the quantity
-    console.log(localStorage.getItem("aDeliCart"), "I'll update the quatity by one son.")
-  } else if (retrieveData) {
-    retrieveData.push(selectionId)
-    localStorage.setItem("aDeliCart", JSON.stringify({
-      selectionId: {
-        regular: 1,
-        large: 1
+
+  // build an object to put into an array
+  let sizeChoice = {}
+  sizeChoice[whichSize] = 1
+  let id = {}
+  id[selectionId] = sizeChoice
+  let handled = "not yet"
+  
+  if (retrieveData) {
+    for (let k in retrieveData) {
+      if (Object.keys(retrieveData[k]).includes(Object.keys(id)[0])) {
+        if (retrieveData[k][Object.keys(id)[0]][whichSize] === undefined) {
+          retrieveData[k][Object.keys(id)[0]][whichSize] = 1
+          localStorage.setItem("aDeliCart", JSON.stringify(retrieveData))
+          handled = "yes"
+          break
+        } else {
+          handled = "yes"
+          retrieveData[k][Object.keys(id)[0]][whichSize] += 1
+          localStorage.setItem("aDeliCart", JSON.stringify(retrieveData))
+          break
+        }
       }
-    }))
-    //set the local storage key to an array containing the item id and quatity
-    console.log("This item is not included. But I have pushed it onto the array", localStorage.getItem("aDeliCart"))
+    }
+
+    if (handled === "not yet") {
+      retrieveData.push(id)
+      localStorage.setItem("aDeliCart", JSON.stringify(retrieveData))
+    }
   } else {
-    localStorage.setItem("aDeliCart", JSON.stringify({
-      selectionId: {
-        regular: 1,
-        large: 1
-      }
-    }))
+    localStorage.setItem("aDeliCart", JSON.stringify([id]))
   }
 }
 
