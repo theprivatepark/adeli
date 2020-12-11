@@ -1,8 +1,8 @@
 
 //USEFUL VARIABLES FOR MENU DISPLAY
-const itemsUrl = "http://localhost:3000/items"
-const singleItemUrl = "http://localhost:3000/items/"
-const categoriesUrl = "http://localhost:3000/categories"
+const itemsUrl = "https://intense-ridge-48579.herokuapp.com/items"
+const singleItemUrl = "https://intense-ridge-48579.herokuapp.com/items/"
+const categoriesUrl = "https://intense-ridge-48579.herokuapp.com/categories"
 const categoriesMenuList = document.querySelector("#menu-categories-ul")
 const itemsInCategoryContainer = document.querySelector("#eat")
 const currentMenuHeader = document.querySelector("#current-menu")
