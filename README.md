@@ -1,1 +1,1 @@
-# adeli-frontend
+With many local restaurants shutting down due to COVID-19, I wanted to redesign a local small family owned restaurant’s website to better market to their customers. 
